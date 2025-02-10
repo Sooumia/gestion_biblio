@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #1abc9c;
+    --secondary-color: #3498db;
+    --hover-color: #148f77;
+    --background-color: #f4f8fb;
+    --text-color: #2c3e50;
+    --footer-color: #34495e;
+    --white: #fff;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 1px 20px;
+    position: fixed; /* Added to fix the footer */
+    top: 0; /* Position at the bottom */
+    width: 98%; /* Full width */
+    margin-bottom: 15px;
+}
+
+.navbar h1 {
+    color: var(--white);
+    font-size: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navbar h1 img {
+    margin-right: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar ul li a {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navbar ul li a:hover {
+    color: var(--hover-color);
+    letter-spacing: 1px;
+}
+
+.search-bar {
+    margin-top: 10px; /* Ajout d'un espace entre la nav et la barre de recherche */
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+.search-submit {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Add styles for the search input */
+.search {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    margin-top: 10px;
+}
+
+
+.login{
+    padding: 5px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--white);
+    background-color:#000000;
+    margin: 0 5px;
+    list-style: none;
+    display: block;
+    padding: 9px 24px;
+    font-size: 16px;
+    color: var(--white);
+    border: none;
+    border-radius: 0.75em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
+
+.login:hover {
+    background-color: #000000;
+    transform: translateY(-0.33em);
+
+}
+
+.login:active{
+    transform: translateY(0);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between login button and image */
+}
+
+.navbar-right img {
+    cursor: pointer; /* Make the image look clickable */
+    transition: transform 0.3s ease;
+}
+
+.navbar-right img:hover {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
