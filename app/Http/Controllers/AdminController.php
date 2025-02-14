@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Book;
+use App\Models\Borrow;
 
 class AdminController extends Controller
 {
@@ -18,7 +19,11 @@ class AdminController extends Controller
             $usertype=Auth()->user()->usertype;
             if ($usertype=='admin')
             {
-                return view('admin.index');
+                $user=User::all()->count();
+                $book= Book::all()->count();
+                $borrow= Borrow::where('status','Approuvé')->count();
+                $returned= Borrow::where('status','Retourné')->count();
+                return view('admin.index',compact('user','book','borrow','returned'));
             }
             else if ($usertype=='user')
             {
@@ -156,6 +161,56 @@ class AdminController extends Controller
         return redirect('/show_book')->with('message', 'Livre modifié avec succès');
     }
 
+    public function borrow_request()
+    {
+        $data = Borrow::all();
+        return view('admin.borrow_request',compact('data'));
+    }
+
+    public function approve_book($id)
+    {
+        $data = Borrow::find($id);
+
+        $status=$data->status;
+
+        if($status == 'Approuvé'){
+           return redirect()->back();
+        }else{
+        $data->status = 'Approuvé';
+        $data->save();
+        $book = Book::find($data->book_id);
+        $book->quantity -= 1;
+        $book->save();
+        return redirect()->back();
+    }
+
+    }
+
+    public function return_book($id)
+    {
+        $data = Borrow::find($id);
+        $status=$data->status;
+
+        if($status == 'Retourné'){
+           return redirect()->back();
+        }else{
+        $data->status = 'Retourné';
+        $data->save();
+        $book = Book::find($data->book_id);
+        $book->quantity += 1;
+        $book->save();
+        return redirect()->back();
+    }
+    }
+
+    public function rejected_book($id)
+    {
+        $data = Borrow::find($id);
+        $data -> status='rejeté';
+
+        $data -> save();
+        return redirect()->back();
+    }
 }
 
 

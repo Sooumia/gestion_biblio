@@ -14,7 +14,7 @@
                 <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Livres </a>
                   <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                     <li><a href="{{ route('books') }}">Les livres</a></li>
-                    <li><a href="">Ajouter Livre</a></li>
+                    <li><a href="{{url('book_history')}}">Les Historiques</a></li>
                   </ul>
                 </li>
                 <li><a href="{{route('logout')}}"> <i class="icon-logout"></i>LogOut page </a></li>

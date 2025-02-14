@@ -12,4 +12,16 @@ class Borrow extends Model
     protected $fillable = [
         'book_id', 'user_id'
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
 }

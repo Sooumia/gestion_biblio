@@ -49,30 +49,6 @@ const Accueil = () => {
                     </div>
                 </div>
             </main>
-            <div>
-                {books.length === 0 ? (
-                    <p>No books available</p>
-                ) : (
-                    books.map(book => (
-                        <section key={book.id}>
-                            <div>
-                                <img 
-                                    src={book.auther_img} 
-                                    alt="image" 
-                                     
-                                />
-                            </div>
-                            <div>
-                                <h3>{book.title}</h3>
-                                <p>{book.description}</p>
-                                <button>
-                                    <a href={`/book/${book.id}`} className="read">READ</a>
-                                </button>
-                            </div>
-                        </section>
-                    ))
-                )}
-            </div>
         </div>
     );
 }

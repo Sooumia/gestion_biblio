@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Utilisateur</title>
+    <base href='/public'>
     @include('user.css')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" 
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" 
@@ -18,24 +19,30 @@
       <div class="currently-market">
         <div class="container">
           <div class="row">
-            <div class="col-lg-6">
-              <div class="section-heading">
-                <div class="line-dec"></div>
-                <h2><em>Articles</em> actuellement sur le marché.</h2>
-              </div>
-            </div>
-
-            <div class="col-lg-6">
+            <div class="col-lg-10 mt-3">
               <div class="filters">
                 <ul>
                   <li data-filter="*" class="active">Tous les livres</li>
-                  <li data-filter=".msc">Populaires</li>
-                  <li data-filter=".dig">Derniers</li>
+                  @foreach ($category as $cat)
+                  <li>
+                    <a href="{{url('cat_search', $cat->id)}}">{{$cat->cat_title}}</a>
+                  </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
-            <div>
           </div>
+          <form action="{{url('search')}}" method="get">
+            @csrf
+          <div class="row m-3">
+              <div class="col-md-8">
+                <input type="text" class="form-control" type="search" name="search" placeholder="Recherche de livres par Titre et Auteur">
+              </div>
+              <div class="col-md-4">
+                  <input type="submit" value="Recherche" class="btn btn-primary">
+              </div>
+          </div>
+            </form>
           <div class="col-lg-12">
                 @if(Session::has('message'))
                     <div class="alert alert-success">

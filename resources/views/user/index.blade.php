@@ -10,7 +10,7 @@
       <!-- Sidebar Navigation-->
       @include ('user.sidebar')
      <!-- Sidebar Navigation end-->
-      @include('user.body')
+      
         <!-- Page Footer-->
       @include('user.footer')
     </div>
