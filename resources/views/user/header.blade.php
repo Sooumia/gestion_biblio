@@ -1,41 +1,21 @@
-<header class="header">   
-      <nav class="navbar navbar-expand-lg">
-        <div class="search-panel">
-          <div class="search-inner d-flex align-items-center justify-content-center">
-            <div class="close-btn">Close <i class="fa fa-close"></i></div>
-            <form id="searchForm" action="#">
-              <div class="form-group">
-                <input type="search" name="search" placeholder="What are you searching for...">
-                <button type="submit" class="submit">Search</button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-          <div class="navbar-header">
-            <!-- Navbar Header--><a href="index.html" class="navbar-brand">
-              <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">My</strong><strong>Biblio</strong></div>
-              <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
-            <!-- Sidebar Toggle Btn-->
-            <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
-          
-           
-           
-            
-          </div> 
-          <div class="list-inline-item"><a href="#" class="search-open nav-link"><i class="icon-magnifying-glass-browser"></i></a></div>
-          <!-- Tasks end-->
-          
-          <!-- Log out               -->
-          <form method="POST" action="{{ route('logout') }}">
-              @csrf
-              <x-dropdown-link href="{{route('logout')}}" @click.prevent="$root.submit()" class="nav-link">
-                  {{ __('Log Out') }} <i class="icon-logout"></i>
-              </x-dropdown-link>
-              
-            </form>
+<div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
 
-          
-        </div>
-      </nav>
-    </header>
+                <form action="{{url('search')}}" method="get" >
+                @csrf
+                <div class="search">
+                  
+                    <input type="text" class="form-control" name="search" placeholder="Recherche de livres par Titre et Auteur">
+                    <input type="submit" value="Recherche" class="btn">
+                 
+                  
+                </div>
+              </form>
+
+                <div class="user">
+                    <img src="{{asset('admin/assets/imgs/customer01.jpg')}}" alt="">
+                </div>
+</div>

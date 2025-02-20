@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>admin</title>
+    <title>user</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" 
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
-    @include('admin.css')
+    @include('user.css')
+    <style>
+      .div_center {
+        max-width: 900px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .table-center {
+        margin: 30px auto 0;
+        width: 80%;
+      }
+    </style>
+    
   </head>
   <body>
     <!-- Header-->
-     @include('admin.header')
+    @include ('user.sidebar')
     <div class="d-flex align-items-stretch">
       <!-- Sidebar Navigation-->
-      @include ('admin.sidebar')
+      @include('user.header')
      <!-- Sidebar Navigation end-->
      <div class="page-content">
         <div class="page-header">
@@ -25,7 +40,7 @@
                    aria-hidden="true">x</button>
                     </div>
                 @endif
-            <table class="table table-striped  table-hover text-center">
+            <table class="table table-striped table-hover text-center table-center ">
                 <tr>
                     <th>nom</th>
                     <th>auteur</th>
@@ -57,7 +72,7 @@
 </div>
 </div>
         <!-- Page Footer-->
-      @include('admin.footer')
+      @include('user.footer')
     </div>
     
   </body>

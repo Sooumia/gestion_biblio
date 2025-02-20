@@ -6,9 +6,9 @@
   </head>
   <body>
     <!-- Header-->
-     @include('user.header')
-      <!-- Sidebar Navigation-->
-      @include ('user.sidebar')
+    @include ('user.sidebar')
+    <!-- Sidebar Navigation-->
+    @include('user.header')
      <!-- Sidebar Navigation end-->
       
         <!-- Page Footer-->

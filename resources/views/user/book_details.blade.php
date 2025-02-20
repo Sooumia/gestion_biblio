@@ -3,61 +3,43 @@
 
   <head>
   @include('user.css')
+  <link rel="stylesheet" href="{{ asset('css/book_details.css') }}">
   </head>
 
-<body>
+<body class="body">
 
-  <!-- ***** Header Area End ***** -->
-  <div class="item-details-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h2>Voir les détails <em>de l'article</em> ici.</h2>
-          </div>
-        </div>
-        <div class="col-lg-7">
-          <div class="left-image">
-            <img src="{{ asset('book/' . $book->book_img) }}" alt="" style="border-radius: 20px;">
-          </div>
-        </div>
-        <div class="col-lg-5 align-self-center">
-          <h4>{{ $book->title }}</h4>
-          <span class="author">
-            <img src="{{ asset('author/' . $book->auther_img) }}" alt="" style="max-width: 50px; border-radius: 50%;">
-            <h6>{{ $book->auther_name }}</h6>
-          </span>
-          <p>{{ $book->description }}</p>
-          <div class="row">
-            <div class="col-3">
-              <span class="bid">
-                Disponible<br><strong>{{ $book->quantity }}</strong><br>
-              </span>
-            </div>
-            <div class="col-5">
-              <span class="ends">
-                Prix<br><strong>{{ $book->price }} €</strong><br>
-              </span>
-            </div>
-          </div>
-        </div>
+<div class="profile-container">
+    <!-- Partie Gauche : Info Profil -->
+    <div class="profile-info">
+      <!-- Image de profil -->
+      <div class="profile-pic">
+      <img src="{{ asset('author/' . $book->auther_img) }}" alt="" style="max-width: 50px; border-radius: 50%;">
+        
       </div>
+      <!-- Nom & Titre -->
+      <h2 class="profile-name">{{ $book->auther_name }}</h2>
+      <p class="profile-title">{{ $book->title }}</p>
+      <p>{{ $book->description }}</p>
+      <!-- Bouton de contact -->
+      <button class="contact-btn" onclick="window.location.href='{{ url('borrow_books', $book->id) }}'">Demande d'emprunt  →</button>
+
+      <!-- Icônes de réseaux sociaux -->
+      <div class="social-icons">
+      <a href="#!">❌</a>
+        <a href="#!">📸</a>
+        <a href="#!">💬</a>
+        <a href="#!">✉️</a>
+      </div>
+    </div>
+
+    <!-- Partie Droite : Image / Illustration -->
+    <div class="profile-image">
+     <img src="{{ asset('book/' . $book->book_img) }}" alt="" style="border-radius: 20px;">
+  
     </div>
   </div>
 
+
 @include('user.footer')
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{asset('user/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('user/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-
-  <script src="{{asset('user/assets/js/isotope.min.js')}}"></script>
-  <script src="{{asset('user/assets/js/owl-carousel.js')}}"></script>
-
-  <script src="{{asset('user/assets/js/tabs.js')}}"></script>
-  <script src="{{asset('user/assets/js/popup.js')}}"></script>
-  <script src="{{asset('user/assets/js/custom.js')}}"></script>
-  </body>
+</body>
 </html>

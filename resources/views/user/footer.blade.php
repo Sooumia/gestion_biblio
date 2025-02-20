@@ -1,19 +1,7 @@
-<footer class="footer">
-  <div class="footer__block block no-margin-bottom">
-    <div class="container-fluid text-center">
-      <p class="no-margin-bottom">2018 &copy; Your company. Download From <a target="_blank" href="https://templateshub.net">Templates Hub</a>.</p>
-    </div>
-  </div>
-</footer>
 
-<!-- JavaScript files-->
-<script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/popper.js/umd/popper.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/jquery.cookie/jquery.cookie.js') }}"></script>
-<script src="{{ asset('admin/vendor/chart.js/Chart.min.js') }}"></script>
-<script src="{{ asset('admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('admin/js/charts-home.js') }}"></script>
-<script src="{{ asset('admin/js/front.js') }}"></script>
+    <!-- =========== Scripts =========  -->
+    <script src="{{asset('user/assets/js/main.js')}}"></script>
 
-
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
