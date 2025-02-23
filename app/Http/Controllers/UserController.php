@@ -91,4 +91,6 @@ class UserController extends Controller
         return view('user.books', compact('data', 'category')); // Pass the data to the view
     }
 
+    
+
 }

@@ -16,6 +16,6 @@
               </form>
 
                 <div class="user">
-                    <img src="{{asset('admin/assets/imgs/customer01.jpg')}}" alt="">
+                    <img src="{{asset('admin/assets/imgs/profil.png')}}" alt="">
                 </div>
 </div>

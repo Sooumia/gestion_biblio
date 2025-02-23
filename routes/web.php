@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +67,6 @@ Route::get('/search',[UserController::class,'search']);
 
 Route::get('/cat_search/{id}',[UserController::class,'cat_search']);
 
+
+
+Route::put('update_profil', [ProfileController::class, 'update_profil'])->name('profile.update');

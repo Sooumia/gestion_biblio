@@ -55,7 +55,7 @@
                 </li>
                 
                 <li>
-                    <a href="#">
+                    <a href="{{url('profil')}}">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>

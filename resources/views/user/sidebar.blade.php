@@ -11,7 +11,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="{{url('home')}}">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -24,7 +24,7 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Favorie</span>
+                        <span class="title">Favoris</span>
                     </a>
                 </li>
 
@@ -46,7 +46,7 @@
                     </a>
                 </li>              
                 <li>
-                    <a href="#">
+                    <a href="{{url('update_profil')}}">
                         <span class="icon">
                             <ion-icon name="settings-outline"></ion-icon>
                         </span>
