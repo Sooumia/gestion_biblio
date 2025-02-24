@@ -1,48 +1,54 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram } from "lucide-react";
 import "./Footer.css";
-import image1 from "../images/book.png"; 
-
+import image1 from "../images/book.png";  // Add your logo or image here
 
 const Footer = () => {
   return (
     <div className="footer-dark">
       <footer className="container-footer">
         <div className="grid">
-        <div className="item">
+          <div className="item">
+            {/* Logo or Title */}
+            <div className="logo">
+              <img src={image1} alt="Logo" width="50px" />
+              <h3>MyBiblio</h3>
+            </div>
           </div>
           <div className="item">
-            <h3>Services</h3>
+            <h3>Nos Services</h3>
             <ul>
-              <li><a href="#">Web design</a></li>
-              <li><a href="#">Development</a></li>
-              <li><a href="#">Hosting</a></li>
+              <li><a href="#">Emprunt de Livres</a></li>
+              <li><a href="#">Événements</a></li>
+              <li><a href="#">Recherche Avancée</a></li>
             </ul>
           </div>
           <div className="item">
-            <h3>About</h3>
+            <h3>A Propos</h3>
             <ul>
-              <li><a href="#">Company</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="#">Notre Histoire</a></li>
+              <li><a href="#">Notre Mission</a></li>
+              <li><a href="#">Équipe</a></li>
             </ul>
           </div>
-          
+
           <div className="item text">
-            <h3>MyBiblio</h3>
+            <h3>À Propos de MyBiblio</h3>
             <p>
-              Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus.
+              MyBiblio est une bibliothèque numérique innovante dédiée à offrir une expérience de lecture exceptionnelle.
             </p>
           </div>
         </div>
         
         <div className="item social">
-          <a href="#"><Facebook /></a>
-          <a href="#"><Twitter /></a>
-          <a href="#"><Instagram /></a>
+          <a href="#"><Facebook className="social-icon" /></a>
+          <a href="#"><Twitter className="social-icon" /></a>
+          <a href="#"><Instagram className="social-icon" /></a>
         </div>
         
-        <p className="copyright" ><img  src={image1} width="40px" style={{margin:"10px"}}/>MyBiblio © 2024</p>
+        <p className="copyright">
+          <img src={image1} alt="Logo" width="30px" style={{margin:"10px"}} /> MyBiblio © 2024
+        </p>
       </footer>
     </div>
   );

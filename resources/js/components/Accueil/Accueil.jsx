@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import FeaturedBooks from "./FeatureBooks";
 import "./Accueil.css";
 
 const Accueil = () => {
     const [books, setBooks] = useState([]);
-    const defaultImage = '/path/to/valid/default/image.png'; // Ensure this path is correct and the image exists
+    const [searchQuery, setSearchQuery] = useState("");
+    const [filteredBooks, setFilteredBooks] = useState([]);
+    const defaultImage = '/path/to/valid/default/image.png'; // Replace with your default image path
 
     useEffect(() => {
         fetch(`${import.meta.env.VITE_BACKEND_URL}/api/books`)
@@ -17,40 +20,48 @@ const Accueil = () => {
             .then(data => {
                 console.log('Fetched books:', data);
                 setBooks(data);
+                setFilteredBooks(data); // Initialize filtered books with all books
             })
             .catch(error => console.error('Error fetching books:', error));
     }, []);
 
+    // Handle search input change
+    const handleSearchChange = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        filterBooks(query);
+    };
+
+    // Filter books based on search query
+    const filterBooks = (query) => {
+        const filtered = books.filter(book =>
+            book.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredBooks(filtered);
+    };
+
     return (
-        <div>
-            <main>
-                <section>
-                    <h1>READING & EDUCATION</h1>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores, dolorum, ipsum tempore officia doloribus ratione quasi corrupti eveniet est aut alias facere error quod obcaecati perspiciatis iusto reiciendis soluta perferendis!</p>
-                    <button>
-                        <a href={`${import.meta.env.VITE_BACKEND_URL}/register`} className="register">INSCRIRE</a>
+        <div className="accueil-container">
+            <main className="main">
+                <section className="intro-section">
+                    <h1 className="title">READING & EDUCATION</h1>
+                    <p className="intro-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit...</p>
+                    <button className="register-btn">
+                        <a href={`${import.meta.env.VITE_BACKEND_URL}/register`} className="register-link">INSCRIRE</a>
                     </button>
+
+                    
                 </section>
-                <div className="h2">
-                    <h2 >OUR SERVICES</h2>
-                    <div>
-                        <div>
-                            <h3>BOOKS</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                        <div>
-                            <h3>EDUCATION</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                        <div>
-                            <h3>LIBRARY</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.</p>
-                        </div>
-                    </div>
-                </div>
             </main>
+
+    
+          
+            <FeaturedBooks/>
         </div>
-    );
-}
+    );};
+
+
+
+
 
 export default Accueil;

@@ -1,10 +1,8 @@
-// Contact.js
 import React, { useState } from 'react';
 import { Send, CheckCircle, User, Mail, MessageSquare, FileText } from 'lucide-react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import image1 from '../images/contact.jpg';  // Importation de l'image
-
-import './Contact.css';  // Importation du fichier CSS
+import image1 from '../images/contact.jpg';
+import './Contact.css';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -61,145 +59,75 @@ function Contact() {
     };
 
     return (
-        <div className="contact-form-container custom-form-container">
-            <div className="text">
-                <div className='contact-page__content'>
-                    <img src={image1} alt="contact" className='img_contact'/>
-                    <div class="contact-page__right">
-                        <div class="section-title text-left">
-                            <h2 class="section-title__title">Contactez-nous</h2>
-                        </div>
-                        <p class="contact-page__text"> Questions, rapports de bugs, retours, demandes de fonctionnalités - nous sommes là pour tout cela.
-                            Utilisez-vous déjà Slack ? Connectez-vous pour que nous puissions personnaliser votre expérience de support.
-                            Si ce n'est pas possible, nous aimerions toujours avoir de vos nouvelles.
-                        </p>
-                        <ul class="list-unstyled contact-page__contact-list">
-                            <li>
-                                <div class="icon">
-                                    <FaPhone />
-                                </div>
-                                <div class="content">
-                                    <p>Des Questions?</p>
-                                    <h4><a href="tel:0635628450">06 35 62 84 50</a></h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <FaEnvelope />
-                                </div>
-                                <div class="content">
-                                    <p>Ecrire un e-mail</p>
-                                    <h4><a href="mailto:info@ville-marrakech.ma">info@Biblio-marrakech.ma</a></h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <FaMapMarkerAlt />
-                                </div>
-                                <div class="content">
-                                    <p>Bibliothéque de ville</p>
-                                    <h4>Bibliothéque de Ville, Avenue Mohammed V, Marrakech</h4>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+        <div className="contact-form-container">
+            <div className="contact-page__content">
+                <div className="contact-page__left">
+                    <img src={image1} alt="contact" className="img_contact"/>
+                </div>
+                <div className="contact-page__right">
+                    <h2 className="section-title">Contactez-nous</h2>
+                    <p className="contact-page__text">Des questions ? Nous sommes là pour vous aider. Contactez-nous maintenant!</p>
+                    <ul className="contact-page__contact-list">
+                        <li>
+                            <FaPhone className="icon" />
+                            <p>Des Questions?</p>
+                            <h4><a href="tel:0635628450">06 35 62 84 50</a></h4>
+                        </li>
+                        <li>
+                            <FaEnvelope className="icon" />
+                            <p>Ecrire un e-mail</p>
+                            <h4><a href="mailto:info@Biblio-marrakech.ma">info@Biblio-marrakech.ma</a></h4>
+                        </li>
+                        <li>
+                            <FaMapMarkerAlt className="icon" />
+                            <p>Bibliothèque de Ville</p>
+                            <h4>Bibliothèque de Ville, Avenue Mohammed V, Marrakech</h4>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div className='p'>
-                <h1 className="h1">Ecrivez nous un message</h1>
-                <div className="form-card custom-form-card">
-                    <div className="form-content">
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            {/* Champ Nom */}
-                            <div>
-                                <label htmlFor="name" className="input-label">
-                                    <User className="icon" /> Nom
-                                </label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    className={`input-field ${errors.name ? 'input-error' : ''}`}
-                                />
-                                {errors.name && <p className="error-text">{errors.name}</p>}
-                            </div>
 
-                            {/* Champ Email */}
-                            <div>
-                                <label htmlFor="email" className="input-label">
-                                    <Mail className="icon" /> Email
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className={`input-field ${errors.email ? 'input-error' : ''}`}
-                                />
-                                {errors.email && <p className="error-text">{errors.email}</p>}
-                            </div>
-
-                            {/* Champ Sujet */}
-                            <div>
-                                <label htmlFor="subject" className="input-label">
-                                    <FileText className="icon" /> Sujet
-                                </label>
-                                <input
-                                    type="text"
-                                    id="subject"
-                                    name="subject"
-                                    value={formData.subject}
-                                    onChange={handleChange}
-                                    className={`input-field ${errors.subject ? 'input-error' : ''}`}
-                                />
-                                {errors.subject && <p className="error-text">{errors.subject}</p>}
-                            </div>
-
-                            {/* Champ Message */}
-                            <div>
-                                <label htmlFor="message" className="input-label">
-                                    <MessageSquare className="icon" /> Message
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows={4}
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    className={`input-field ${errors.message ? 'input-error' : ''}`}
-                                />
-                                {errors.message && <p className="error-text">{errors.message}</p>}
-                            </div>
-
-                            <div className="flex items-center justify-end">
-                                <button
-                                    type="submit"
-                                    className="submit-btn"
-                                >
-                                    {submitted ? (
-                                        <>
-                                            <CheckCircle className="h-5 w-5 mr-2" />
-                                            Envoyé !
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Send className="h-5 w-5 mr-2" />
-                                            Envoyer le message
-                                        </>
-                                    )}
-                                </button>
-                            </div>
-                        </form>
-                        {submitted && (
-                            <div className="success-message">
-                                <p>Merci pour votre message ! Nous vous répondrons bientôt.</p>
-                            </div>
-                        )}
+            <h1 className="h1">Écrivez-nous un message</h1>
+            <div className="form-card">
+                <form onSubmit={handleSubmit} className="contact-form">
+                    <div>
+                        <label htmlFor="name" className="input-label">
+                            <User className="icon" /> Nom
+                        </label>
+                        <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="input-field" />
+                        {errors.name && <p className="error-text">{errors.name}</p>}
                     </div>
-                </div>
+                    <div>
+                        <label htmlFor="email" className="input-label">
+                            <Mail className="icon" /> Email
+                        </label>
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="input-field" />
+                        {errors.email && <p className="error-text">{errors.email}</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="subject" className="input-label">
+                            <FileText className="icon" /> Sujet
+                        </label>
+                        <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className="input-field" />
+                        {errors.subject && <p className="error-text">{errors.subject}</p>}
+                    </div>
+                    <div>
+                        <label htmlFor="message" className="input-label">
+                            <MessageSquare className="icon" /> Message
+                        </label>
+                        <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="input-field" />
+                        {errors.message && <p className="error-text">{errors.message}</p>}
+                    </div>
+                    <button type="submit" className="submit-btn">
+                        {submitted ? <CheckCircle className="h-5 w-5 mr-2" /> : <Send className="h-5 w-5 mr-2" />}
+                        {submitted ? 'Envoyé!' : 'Envoyer le message'}
+                    </button>
+                </form>
+                {submitted && (
+                    <div className="success-message">
+                        <p>Merci pour votre message ! Nous vous répondrons bientôt.</p>
+                    </div>
+                )}
             </div>
         </div>
     );
