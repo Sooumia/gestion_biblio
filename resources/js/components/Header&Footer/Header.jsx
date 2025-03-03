@@ -57,6 +57,7 @@ const Header = ({ isLoggedIn }) => {
                   <div className="theme-toggle" onClick={toggleTheme}>
     {isDarkMode ? <FaSun /> : <FaMoon />}
 </div>
+3
                  
                    
                 </div>

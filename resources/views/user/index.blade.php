@@ -1,134 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>user</title>
-    @include('user.css')
+    <head>
+        <title>Profil Utilisateur</title>
+        @include('admin.css')
+        
     <style>
-    body {
+    .body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f4f4;
         margin: 0;
         padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg,#034d59,white);
     }
 
     .profile-container {
-        width: 60%;
-        margin: 50px auto;
+        width: 40%;
         background: white;
         padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        display:block;
-    }
-
-    .profile-header {
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         text-align: center;
-        margin-bottom: 30px;
+        position: relative;
+        height: 500px;
     }
 
     .profile-header img {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         border-radius: 50%;
-        margin-bottom: 15px;
-        border: 4px solid #007BFF;
+        border: 4px solid white;
+        object-fit: cover;
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .profile-header h2 {
-        margin: 15px 0;
+        margin-top: 40px;
         color: #333;
-        font-size: 24px;
+        font-size: 22px;
+        font-weight: bold;
     }
 
     .profile-header p {
         color: #666;
+        font-size: 14px;
         margin: 5px 0;
-        font-size: 16px;
     }
-
+    
     .info, .skills {
-        margin-top: 25px;
-        padding: 20px;
+        margin-top: 20px;
+        padding: 15px;
         background: #f9f9f9;
         border-radius: 8px;
     }
 
     .info h3, .skills h3 {
-        color: #007BFF;
-        margin-bottom: 15px;
-        border-bottom: 2px solid #007BFF;
-        padding-bottom: 10px;
-        font-size: 20px;
-    }
-
-    .info p {
-        padding: 10px;
-        background: white;
-        border-radius: 5px;
+        color: #333;
+        font-size: 18px;
         margin-bottom: 10px;
-        font-size: 16px;
-        color: #555;
     }
-
-    .skills {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .skills-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .skills span {
+    
+    .skills-list span {
         display: inline-block;
-        background: #007BFF;
+        background:#034d59;
         color: white;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 15px;
+        font-size: 12px;
         margin: 5px;
     }
-
-    .skills span:hover {
-        background: #0056b3;
-        cursor: pointer;
-    }
-</style>
- 
+    </style>
   </head>
   <body>
-    <!-- Header-->
     @include ('user.sidebar')
-    <!-- Sidebar Navigation-->
     @include('user.header')
-     <!-- Sidebar Navigation end-->
+    <!-- Sidebar Navigation end-->
+    <div class="body">
+    <div class="profile-container">
 
-     <img src="{{ asset(Auth::user()->photo ?? 'user/assets/imgs/profil.png') }}" alt="Photo de Profil">
-<h2>{{ Auth::user()->name }}</h2>
-<p>Email: {{ Auth::user()->email }}</p>
-<p>Téléphone: {{ Auth::user()->phone ?? 'Non renseigné' }}</p>
-
-<div class="info">
-    <h3>Informations Académiques</h3>
-    <p>Université: {{ Auth::user()->universite ?? 'Non renseigné' }}</p>
-    <p>Filière: {{ Auth::user()->filiere ?? 'Non renseigné' }}</p>
-    <p>Niveau: {{ Auth::user()->niveau ?? 'Non renseigné' }}</p>
-</div>
-
-<div class="skills">
-    <h3>Compétences</h3>
-    @foreach (explode(',', Auth::user()->skills ?? '') as $skill)
-        <span>{{ trim($skill) }}</span>
-    @endforeach
-</div>
-
-      
-        <!-- Page Footer-->
-      @include('user.footer')
-    </div>
-    
+            <div class="profile-header">
+                <img src="{{ asset(Auth::user()->photo ?? 'user/assets/imgs/profil.png') }}" alt="Photo de Profil">
+            <h2>{{ Auth::user()->name }}</h2>
+            <p>Email: {{ Auth::user()->email }}</p>
+            <p>Téléphone: {{ Auth::user()->phone ?? 'Non renseigné' }}</p>
+        </div>
+        
+        <div class="info">
+            <h3>Informations Académiques</h3>
+            <p>Université: {{ Auth::user()->universite ?? 'Non renseigné' }}</p>
+            <p>Filière: {{ Auth::user()->filiere ?? 'Non renseigné' }}</p>
+            <p>Niveau: {{ Auth::user()->niveau ?? 'Non renseigné' }}</p>
+        </div>
+        
+        <div class="skills">
+            <h3>Compétences</h3>
+            <div class="skills-list">
+                @foreach (explode(',', Auth::user()->skills ?? '') as $skill)
+                    <span>{{ trim($skill) }}</span>
+                @endforeach
+            </div>
+        </div>
+        </div>
+     </div>
+    @include('user.footer')
   </body>
 </html>

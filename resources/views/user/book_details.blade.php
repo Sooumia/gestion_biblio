@@ -19,7 +19,7 @@
       <!-- Nom & Titre -->
       <h2 class="profile-name">{{ $book->auther_name }}</h2>
       <p class="profile-title">{{ $book->title }}</p>
-      <p>{{ $book->description }}</p>
+      <p style="font-size:19px;color:gray;">{{ $book->description }}</p>
       <!-- Bouton de contact -->
       <button class="contact-btn" onclick="window.location.href='{{ url('borrow_books', $book->id) }}'">Demande d'emprunt  →</button>
 
@@ -34,7 +34,7 @@
 
     <!-- Partie Droite : Image / Illustration -->
     <div class="profile-image">
-     <img src="{{ asset('book/' . $book->book_img) }}" alt="" style="border-radius: 20px;">
+     <img src="{{ asset('book/' . $book->book_img) }}" alt="" style="max-width: 600px; border-radius: 2%;">
   
     </div>
   </div>

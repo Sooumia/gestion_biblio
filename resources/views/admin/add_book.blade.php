@@ -41,7 +41,7 @@
                     <input type="text" name="book_author" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Price</span>
+                    <span class="details">Prix</span>
                     <input type="text" name="book_price" required>
                 </div>
                 <div class="input-box">

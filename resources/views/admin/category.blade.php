@@ -6,17 +6,19 @@
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-      .div_center {
-        max-width: 600px;
+      .container-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         margin: 30px auto;
+        max-width: 90%;
+      }
+      .div_center {
+        margin-top: 50px;
+        width: 45%;
         background: white;
         padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      h1.p-4 {
-        color: #493dc5;
-        font-size: 24px;
+        text-align: center;
       }
       form {
         padding: 10px;
@@ -47,7 +49,7 @@
         transition: 0.3s;
       }
       button.btn-primary:hover {
-        background-color: #2a2185;
+        background-color: #1f176b;
       }
       .alert {
         padding: 10px;
@@ -64,17 +66,50 @@
         cursor: pointer;
       }
       .table-container {
-        margin: 30px;
+        width: 80%;
+        margin: 30px auto;
         padding: 30px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         background: white;
       }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+      }
       .table th, .table td {
-        vertical-align: middle;
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      .table th {
+        background-color: #f2f2f2;
+        color: #333;
+      }
+      .table tr:hover {
+        background-color: #f5f5f5;
       }
       .btn-info, .btn-danger {
-        margin: 5px;
+        margin: 1px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn-info {
+        background-color: #17a2b8;
+        color: white;
+      }
+      .btn-info:hover {
+        background-color: #138496;
+      }
+      .btn-danger {
+        background-color: #dc3545;
+        color: white;
+      }
+      .btn-danger:hover {
+        background-color: #c82333;
       }
     </style>
   </head>
@@ -109,7 +144,7 @@
               </form>
             </div>
             <div class="table-container">
-              <table class="table table-striped">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>Id</th>

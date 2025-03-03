@@ -70,9 +70,7 @@
     <!-- Titre + bouton Ajouter Livre -->
     <div class="px-4 mb-4 flex items-center justify-between">
       <h2 class="text-2xl font-semibold text-white">Les livres</h2>
-      <a href="{{ url('add_book') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
-        Ajouter Livre
-      </a>
+     
     </div>
 
     <!-- Message de session -->
@@ -93,10 +91,12 @@
   @foreach($data as $book)
     <div class="relative flex flex-col rounded-xl bg-white shadow-md mt-8">
       <!-- Image agrandie -->
-      <div class="relative mx-4 -mt-6 h-64 overflow-hidden rounded-xl bg-blue-500 bg-clip-border text-white shadow-lg">
+      <div class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-500 bg-clip-border text-white shadow-lg">
         <img src="{{ asset('book/' . $book->book_img) }}"
              alt="Couverture du livre"
-             class="object-cover w-full h-full">
+             class="object-cover w-full h-full"
+             style="max-height:450px"
+             >
       </div>
       <!-- Corps de la carte -->
       <div class="p-6">

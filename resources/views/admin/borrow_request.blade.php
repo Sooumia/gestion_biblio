@@ -5,14 +5,22 @@
     @include('admin.css')
     <style>
       .table-container {
-        margin: 30px;
+        margin: 40px auto;
         padding: 30px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+        max-width: 75%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
         background: white;
       }
       .table th, .table td {
         vertical-align: middle;
+      }
+      .table tbody .table-light td {
+        margin: 10px;
+      }
+      .btn-group {
+        display: flex;
+        justify-content: space-around;
       }
       .btn-warning, .btn-danger, .btn-info {
         margin: 5px;
@@ -45,7 +53,7 @@
                 </thead>
                 <tbody>
                   @foreach ($data as $data)
-                  <tr>
+                  <tr class="table-light">
                     <td>{{$data->user->name}}</td>
                     <td>{{$data->user->email}}</td>
                     <td>{{$data->user->phone}}</td>
@@ -59,7 +67,7 @@
                         <span style='color:red;'>{{$data->status}}</span>
                       @endif
                       @if($data->status == "Retourné")
-                        <span style='color:yellow;'>{{$data->status}}</span>
+                        <span style='color:violet;'>{{$data->status}}</span>
                       @endif
                       @if($data->status == "Demande envoyée")
                         <span style='color:green;'>{{$data->status}}</span>
@@ -69,9 +77,11 @@
                       <img width="100px" src="book/{{$data->book->book_img}}" alt="">
                     </td>
                     <td>
-                      <a href="{{url('approve_book', $data->id)}}" class="btn btn-warning">Approuvé</a>
-                      <a href="{{url('rejected_book', $data->id)}}" class="btn btn-danger">Rejeté</a>
-                      <a href="{{url('return_book', $data->id)}}" class="btn btn-info">Retourné</a>
+                      <div class="btn-group">
+                        <a href="{{url('approve_book', $data->id)}}" class="btn btn-warning">Approuvé</a>
+                        <a href="{{url('rejected_book', $data->id)}}" class="btn btn-danger">Rejeté</a>
+                        <a href="{{url('return_book', $data->id)}}" class="btn btn-info">Retourné</a>
+                      </div>
                     </td>
                   </tr>
                   @endforeach  

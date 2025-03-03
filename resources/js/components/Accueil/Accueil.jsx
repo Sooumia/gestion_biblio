@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import FeaturedBooks from "./FeatureBooks";
 import "./Accueil.css";
 
@@ -25,12 +26,7 @@ const Accueil = () => {
             .catch(error => console.error('Error fetching books:', error));
     }, []);
 
-    // Handle search input change
-    const handleSearchChange = (e) => {
-        const query = e.target.value;
-        setSearchQuery(query);
-        filterBooks(query);
-    };
+
 
     // Filter books based on search query
     const filterBooks = (query) => {

@@ -645,8 +645,7 @@ button.btn-success:hover {
       border-radius: 1rem;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       display: flex;
-      max-width: 900px;
-      width: 100%;
+      width:65%;
       overflow: hidden;
     }
 
@@ -685,6 +684,8 @@ button.btn-success:hover {
       font-size: 0.875rem;
       color: #088F8F; /* Orange */
       margin-top: 0.25rem;
+      font-size: 2em;
+
     }
 
     .contact-btn {

@@ -13,6 +13,6 @@
                 </form>
 
                 <div class="user">
-                    <img src="{{asset('admin/assets/imgs/customer01.jpg')}}" alt="">
+                    <img src="{{asset('admin/assets/imgs/admin.jpg')}}" alt="Admin Image">
                 </div>
 </div>
