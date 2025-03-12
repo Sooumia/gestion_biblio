@@ -1,6 +1,6 @@
 /* Footer - Modern Style with Animations */
 .footer-dark {
-  background: #009378;
+  background: #2c3e50; /* Darker background for a library theme */
   color: #ecf0f1;
   padding: 50px 0;
   position: relative;
@@ -46,7 +46,7 @@
 }
 
 .item a:hover {
-  color: #f39c12;
+  color: #e74c3c; /* Highlight links with a red color */
 }
 
 .item.text p {
@@ -69,7 +69,7 @@
 }
 
 .social-icon:hover {
-  color: #f39c12;
+  color: #e74c3c; /* Highlight social icons with a red color */
   transform: scale(1.2);
 }
 
@@ -85,7 +85,7 @@ footer p img {
 }
 
 footer p a {
-  color: #f39c12;
+  color: #e74c3c; /* Highlight footer links with a red color */
   text-decoration: none;
   font-weight: bold;
 }

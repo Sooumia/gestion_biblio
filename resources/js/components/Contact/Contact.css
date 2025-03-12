@@ -1,15 +1,13 @@
 /* Global styles */
 .contact-form-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   margin: 20px;
   padding: 30px;
   background: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  transform: translateY(30px);
-  opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }
 
@@ -23,27 +21,37 @@
     opacity: 1;
   }
 }
-
+.contact-page__content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+  gap: 45px;
+}
 /* Left content (Image) */
 .contact-page__left {
-  width: 45%;
+  width: 80%;
+  
+  flex-direction: column;
 }
 
 .img_contact {
-  width: 100%;
-  height: auto;
+  
+  width: 850px;
+ height: 550px;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* Add margin to separate the image from the text */
 }
 
 /* Right content (Text and contacts) */
 .contact-page__right {
-  width: 50%;
-  padding: 30px;
+  width: 70%; /* Adjust width to fit next to the image */
+  padding: 70px;
   background: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 20px;
   animation: slideIn 1s ease-out;
 }
 
@@ -61,17 +69,18 @@
 .contact-page__contact-list {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .contact-page__contact-list li {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .contact-page__contact-list .icon {
   background-color: #007bff;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 30px;
   padding: 15px;
   border-radius: 50%;
@@ -95,7 +104,17 @@
 }
 
 /* Form Section */
+.h1{
+  font-size: 50px;
+  font-weight: 900;
+  
+  color: black;
+  padding: 15px;
+}
 .form-card {
+  color: black;
+  width: 100%;
+  max-width: 1000px;
   margin: 50px 0;
   padding: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -107,6 +126,22 @@
 
 .form-card:hover {
   transform: scale(1.02);
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .submit-btn {

@@ -1,8 +1,8 @@
 /* Root Colors */
 :root {
-  --primary-color: #1abc9c;
-  --secondary-color: #45e7ce;
-  --hover-color: #148f77;
+  --primary-color: #2c3e50; /* Darker primary color for a library theme */
+  --secondary-color: #e74c3c; /* Red secondary color */
+  --hover-color: #c0392b; /* Darker red for hover effects */
   --text-color: #ffffff;
   --background-color: #f4f8fb;
   --shadow-color: rgba(0, 0, 0, 0.2);
@@ -10,8 +10,8 @@
 
 /* Dark Mode Colors */
 [data-theme="dark"] {
-  --primary-color: #148f77;
-  --secondary-color: #1abc9c;
+  --primary-color: #34495e;
+  --secondary-color: #e74c3c;
   --text-color: #f4f8fb;
   --background-color: #2c3e50;
   --shadow-color: rgba(255, 255, 255, 0.1);

@@ -59,26 +59,27 @@ function Contact() {
     };
 
     return (
+        <>
         <div className="contact-form-container">
             <div className="contact-page__content">
                 <div className="contact-page__left">
                     <img src={image1} alt="contact" className="img_contact"/>
                 </div>
                 <div className="contact-page__right">
-                    <h2 className="section-title">Contactez-nous</h2>
-                    <p className="contact-page__text">Des questions ? Nous sommes là pour vous aider. Contactez-nous maintenant!</p>
+                    <h2 className="section-title animate__animated animate__fadeIn">Contactez-nous</h2>
+                    <p className="contact-page__text animate__animated animate__fadeIn animate__delay-1s">Des questions ? Nous sommes là pour vous aider. Contactez-nous maintenant!</p>
                     <ul className="contact-page__contact-list">
-                        <li>
+                        <li className="animate__animated animate__fadeInUp animate__delay-2s">
                             <FaPhone className="icon" />
                             <p>Des Questions?</p>
                             <h4><a href="tel:0635628450">06 35 62 84 50</a></h4>
                         </li>
-                        <li>
+                        <li className="animate__animated animate__fadeInUp animate__delay-3s">
                             <FaEnvelope className="icon" />
                             <p>Ecrire un e-mail</p>
                             <h4><a href="mailto:info@Biblio-marrakech.ma">info@Biblio-marrakech.ma</a></h4>
                         </li>
-                        <li>
+                        <li className="animate__animated animate__fadeInUp animate__delay-4s">
                             <FaMapMarkerAlt className="icon" />
                             <p>Bibliothèque de Ville</p>
                             <h4>Bibliothèque de Ville, Avenue Mohammed V, Marrakech</h4>
@@ -87,8 +88,8 @@ function Contact() {
                 </div>
             </div>
 
-            <h1 className="h1">Écrivez-nous un message</h1>
-            <div className="form-card">
+            <h1 className="h1 animate__animated animate__fadeIn animate__delay-5s">Écrivez-nous un message</h1>
+            <div className="form-card animate__animated animate__fadeInUp animate__delay-6s">
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div>
                         <label htmlFor="name" className="input-label">
@@ -130,6 +131,7 @@ function Contact() {
                 )}
             </div>
         </div>
+           </>
     );
 }
 

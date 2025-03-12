@@ -1,7 +1,21 @@
+/* Adding animation effects */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .services-container {
     padding: 40px 10%;
     background-color: #f0f4f8;
     text-align: center;
+    position: relative; /* Ensure the container is positioned correctly */
+    z-index: 1; /* Ensure the container is above other elements */
 }
 
 .services-header h1 {
@@ -9,17 +23,21 @@
     font-weight: 700;
     color: #0a857d;
     margin-bottom: 10px;
+    position: relative; /* Ensure the title is positioned correctly */
+    z-index: 2; /* Ensure the title is above other elements */
 }
 
 .services-header p {
     font-size: 1.2rem;
     color: #5f6368;
     margin-bottom: 40px;
+    position: relative; /* Ensure the subtitle is positioned correctly */
+    z-index: 2; /* Ensure the subtitle is above other elements */
 }
 
 .services-cards {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -54,6 +72,17 @@
     font-size: 1rem;
 }
 
+/* Animations */
+.animate__animated {
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .services-cards {
         grid-template-columns: repeat(2, 1fr);
