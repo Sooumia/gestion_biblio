@@ -1,0 +1,195 @@
+:root {
+    --primary-color: #007bff;
+    --white-color: #fff;
+    --overlay-color: rgba(0, 0, 0, 0.6);
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+    overflow: hidden;
+}
+
+/* Overlay pour assombrir la vidéo */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.overlay.loaded {
+    opacity: 1;
+}
+
+/* Style de la vidéo */
+.video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.video.loaded {
+    opacity: 1;
+}
+
+/* Contenu positionné au-dessus de la vidéo */
+.homeContent {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    margin-top: 3rem;
+}
+
+.homeContent.loaded {
+    opacity: 1;
+}
+
+/* Texte de présentation */
+.textDiv {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.homeTitle {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.smallText {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Barre de recherche */
+.cardDiv {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input input {
+    width: 80%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input .icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+button {
+    padding: 12px 35px; /* Ajustez le padding pour un meilleur espacement */
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex; /* Utilisez flex pour aligner l'icône et le texte */
+    align-items: center; /* Centre verticalement */
+    gap: 8px; /* Espace entre l'icône et le texte */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .searchIcon {
+    font-size: 1.2rem; /* Taille de l'icône */
+    color: var(--white-color); /* Couleur de l'icône */
+  }
+
+.homeFooterIcons{
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px;
+    .icon{
+        font-size: 1.5rem;
+        color: var(--white-color);
+        margin: 0 5px;
+        font-weight: 600;
+        
+        &:hover{
+            color: var(--primary-color);
+        }
+    }
+}
+

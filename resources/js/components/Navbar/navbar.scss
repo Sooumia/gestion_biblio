@@ -1,0 +1,187 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-light-color: #f1f1f1;
+    --white-color: #fff;
+    --font-dark-color: #313131;
+}
+
+.navBarSection {
+    .header {
+        background-color: var(--background-light-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .logoDiv {
+            .logo {
+                color: var(--primary-color);
+                cursor: pointer;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+
+                h1 {
+                    margin: 0;
+                    display: flex;
+                    align-items: center;
+
+                    .icon {
+                        font-size: 25px;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .navBar {
+            display: flex;
+            align-items: center;
+
+            .navLists {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                .navItem {
+                    padding: 0 1rem;
+
+                    .navLink {
+                        color: var(--font-dark-color);
+                        text-decoration: none;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+
+                        &:hover {
+                            color: var(--primary-color);
+                        }
+                    }
+                }
+
+                .btn {
+                    margin-left: 1rem;
+
+                    a {
+                        background-color: var(--primary-color);
+                        color: var(--white-color);
+                        padding: 0.5rem 1rem;
+                        text-decoration: none;
+                        font-weight: 600;
+                        border-radius: 0.25rem;
+
+                        &:hover {
+                            background-color: var(--secondary-color);
+                        }
+                    }
+                }
+            }
+
+            .closeNavbar {
+                display: none;
+                cursor: pointer;
+
+                .icon {
+                    font-size: 1.5rem;
+                    color: var(--primary-color);
+
+                    &:hover {
+                        color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+
+        .toggleNavBar {
+            display: none;
+            cursor: pointer;
+
+            .icon {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+
+                &:hover {
+                    color: var(--secondary-color);
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .header {
+            .navBar {
+                display: none;
+                position: absolute;
+                background-color: var(--background-light-color);
+                width: 80%;
+                border-radius: 1rem;
+                top: 6rem;
+                left: 50%;
+                padding: 1rem;
+                transform: translateX(-50%);
+                z-index: 2000;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                &.activeNavbar {
+                    display: block;
+                }
+
+                .navLists {
+                    flex-direction: column;
+                    align-items: center;
+
+                    .navItem {
+                        padding: 0.5rem 0;
+                    }
+                }
+
+                .closeNavbar {
+                    display: block;
+                    position: absolute;
+                    top: 1rem;
+                    right: 1.5rem;
+                }
+            }
+
+            .toggleNavBar {
+                display: block;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:500px){
+    .homeContent{
+        .textDiv{
+            .smallText{
+                font-size: 16px;
+
+            }
+            .homeTitle{
+                position: relative;
+                font-size: 2.3rem;
+                width:max-content ;
+                &::after{
+                    position: relative;
+                    content:'';
+                    background-color: var(--secondary-color);
+                    height: 5px;
+                    width: 145px;
+                    right:0;
+                    bottom:5px;
+                    z-index:-1;
+                }
+            }
+
+        }
+        .cardDiv{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+    
+}

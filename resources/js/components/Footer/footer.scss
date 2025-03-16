@@ -1,0 +1,134 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-dark-color: #10121A;
+    --background-dark-grey: #191d2b;
+    --border-color: #2e344e;
+    --background-light-color: #f1f1f1;
+    --white-color: #fff;
+    --background-dark-color: #a4acc4;
+    --font-dark-color: #313131;
+    --font-dark-color-2: #151515;
+    --sidebar-dark-color: #191d2b;
+    --scrollbar-bg-color: #383838;
+    --scrollbar-thump-color: #6b6b6b;
+    --scrollbar-track-color: #383838;
+  }
+  
+  .footer-dark {
+    background: var(--background-light-color); /* Utilisation de la couleur de fond sombre */
+    color: var(--primary-color); /* Utilisation de la couleur de texte claire */
+    padding: 50px 0;
+    position: relative;
+    margin-top: 50px;
+    animation: fadeInFooter 2s ease-out;
+  }
+  
+  .container-footer {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .item {
+    text-align: left;
+  }
+  
+  .item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+    color: var( --primary-color); /* Utilisation de la couleur blanche */
+  }
+  
+  .item a {
+    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    text-decoration: none;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .item a:hover {
+    color: var(--primary-color); /* Utilisation de la couleur primaire */
+    transform: translateX(5px);
+  }
+  
+  .item.text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    margin-top: 10px;
+  }
+  
+  .social {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: var(--primary-color); /* Utilisation de la couleur primaire */
+    transform: scale(1.2);
+  }
+  
+  footer p {
+    text-align: center;
+    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+  
+  footer p a {
+    color: var(--primary-color); /* Utilisation de la couleur primaire */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  footer p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer Animations */
+  @keyframes fadeInFooter {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .item {
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }

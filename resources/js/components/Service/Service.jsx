@@ -1,38 +1,53 @@
 import React from "react";
-import { FaBook, FaUsers, FaSearch, FaCogs } from "react-icons/fa"; 
-import "./Service.css";
+import { FaBook, FaLaptop, FaUserAlt, FaHeadphones } from "react-icons/fa";
+import "./Service.scss";
 
-const Service = () => {
-    return (
-        <div className="services-container">
-            <div className="services-header">
-                <h1>Nos Services</h1>
-                <p>Explorez les services que nous offrons à la bibliothèque</p>
-            </div>
-            <div className="services-cards">
-                <div className="service-card">
-                    <FaBook className="service-icon" />
-                    <h3>Prêt de Livres</h3>
-                    <p>Accédez à une large collection de livres pour emprunter, lire et apprécier.</p>
-                </div>
-                <div className="service-card">
-                    <FaUsers className="service-icon" />
-                    <h3>Programmes Communautaires</h3>
-                    <p>Participez à des événements, des ateliers et des clubs de lecture.</p>
-                </div>
-                <div className="service-card">
-                    <FaSearch className="service-icon" />
-                    <h3>Recherche Avancée</h3>
-                    <p>Utilisez notre système de recherche pour trouver des livres et des ressources spécifiques.</p>
-                </div>
-                <div className="service-card">
-                    <FaCogs className="service-icon" />
-                    <h3>Assistance Personnalisée</h3>
-                    <p>Recevez de l'aide pour naviguer dans nos services et choisir les meilleures ressources pour vos besoins.</p>
-                </div>
-            </div>
-        </div>
-    );
+const Services = () => {
+  const services = [
+    {
+      id: 1,
+      title: "Prêt de Livres",
+      description: "Empruntez des livres physiques pour une période déterminée.",
+      icon: <FaBook />,
+    },
+    {
+      id: 2,
+      title: "Accès aux Ressources Numériques",
+      description: "Accédez à une large gamme de ressources en ligne et de livres électroniques.",
+      icon: <FaLaptop />,
+    },
+    {
+      id: 3,
+      title: "Espace de Lecture",
+      description: "Profitez de notre espace de lecture confortable pour étudier ou lire.",
+      icon: <FaUserAlt />,
+    },
+    {
+      id: 4,
+      title: "Assistance & Conseils",
+      description: "Notre équipe est à votre disposition pour vous aider à trouver les ressources dont vous avez besoin.",
+      icon: <FaHeadphones />,
+    },
+  ];
+
+  return (
+    <div className="services-container" id="services">
+      <header className="services-header">
+        <h1>Nos Services</h1>
+        <p>Explorez les différents services que nous proposons à nos membres.</p>
+      </header>
+
+      <section className="services-list">
+        {services.map((service) => (
+          <div className="service-card" key={service.id}>
+            <div className="service-icon">{service.icon}</div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </div>
+        ))}
+      </section>
+    </div>
+  );
 };
 
-export default Service;
+export default Services;

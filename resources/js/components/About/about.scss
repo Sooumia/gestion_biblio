@@ -1,0 +1,54 @@
+.about-section, .story-section, .mission-section, .numbers-section {
+  position: relative;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sticker {
+  position: absolute;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.sticker-1 { top: -20px; left: -20px; }
+.sticker-2 { bottom: -20px; right: -20px; }
+.sticker-3 { top: -20px; right: -20px; }
+.sticker-4 { bottom: -20px; left: -20px; }
+
+.sticker-icon {
+  font-size: 1.2rem;
+  color: #ff6b6b;
+}
+
+.about-img {
+  position: relative;
+  img {
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .stat {
+    text-align: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 200px;
+  }
+}
