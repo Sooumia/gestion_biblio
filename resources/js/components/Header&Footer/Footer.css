@@ -1,0 +1,117 @@
+/* Footer - Modern Style with Animations */
+.footer-dark {
+  background: #2c3e50; /* Darker background for a library theme */
+  color: #ecf0f1;
+  padding: 50px 0;
+  position: relative;
+  margin-top: 50px;
+  animation: fadeInFooter 2s ease-out;
+}
+
+.container-footer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 1;
+  min-width: 200px;
+}
+
+.item h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.item a {
+  color: #ecf0f1;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.item a:hover {
+  color: #e74c3c; /* Highlight links with a red color */
+}
+
+.item.text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #bdc3c7;
+  margin-top: 10px;
+}
+
+.social {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icon {
+  color: #ecf0f1;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #e74c3c; /* Highlight social icons with a red color */
+  transform: scale(1.2);
+}
+
+footer p {
+  text-align: center;
+  color: #bdc3c7;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+footer p img {
+  vertical-align: middle;
+}
+
+footer p a {
+  color: #e74c3c; /* Highlight footer links with a red color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer p a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Animations */
+@keyframes fadeInFooter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item {
+    text-align: center;
+  }
+}
