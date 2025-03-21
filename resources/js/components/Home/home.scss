@@ -1,9 +1,4 @@
-:root {
-    --primary-color: #007bff;
-    --white-color: #fff;
-    --overlay-color: rgba(0, 0, 0, 0.6);
-}
-
+/* Base styles */
 .home {
     position: relative;
     width: 100%;
@@ -11,185 +6,228 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--white-color);
     overflow: hidden;
-}
-
-/* Overlay pour assombrir la vidéo */
-.overlay {
+  }
+  
+  /* Video and overlay styles */
+  .video {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-color);
     top: 0;
     left: 0;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.overlay.loaded {
-    opacity: 1;
-}
-
-/* Style de la vidéo */
-.video {
-    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
+  
+  .overlay {
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.video.loaded {
-    opacity: 1;
-}
-
-/* Contenu positionné au-dessus de la vidéo */
-.homeContent {
-    position: absolute;
+    transition: opacity 1s ease;
+    
+    &.loaded {
+      opacity: 1;
+    }
+  }
+  
+  /* Main content styles */
+  .homeContent {
+    position: relative;
     z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    margin-top: 3rem;
-}
-
-.homeContent.loaded {
-    opacity: 1;
-}
-
-/* Texte de présentation */
-.textDiv {
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.homeTitle {
-    font-size: 3.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    animation: slideIn 1s ease-in-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.smallText {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--primary-color);
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Barre de recherche */
-.cardDiv {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 3rem;
-    border-radius: 15px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1.5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    margin-top: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.input input {
-    width: 80%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.input .icon {
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-button {
-    padding: 12px 35px; /* Ajustez le padding pour un meilleur espacement */
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex; /* Utilisez flex pour aligner l'icône et le texte */
-    align-items: center; /* Centre verticalement */
-    gap: 8px; /* Espace entre l'icône et le texte */
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .searchIcon {
-    font-size: 1.2rem; /* Taille de l'icône */
-    color: var(--white-color); /* Couleur de l'icône */
-  }
-
-.homeFooterIcons{
-    width: 100%;
-    justify-content: space-between;
-    padding: 25px;
-    .icon{
-        font-size: 1.5rem;
-        color: var(--white-color);
-        margin: 0 5px;
-        font-weight: 600;
-        
-        &:hover{
-            color: var(--primary-color);
-        }
+    gap: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    
+    &.loaded {
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
+  }
+  
+  /* Text styles */
+  .textDiv {
+    text-align: center;
+    color: white;
+    
+    .smallText {
+      font-size: 1rem;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .homeTitle {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      
+      @media (max-width: 768px) {
+        font-size: 2.2rem;
+      }
+    }
+  }
+  
+  /* Search bar styles */
+  .cardDiv {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    
+    .input {
+      display: flex;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &.focused {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-weight: 500;
+        
+        &::placeholder {
+          color: #999;
+        }
+      }
+      
+      button {
+        background:  #1096B0;
+        color: white;
+        border: none;
+        padding: 0 1.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        transition: background 0.3s ease;
+        
+        &:hover {
+          background: #02252B;
+        }
+        
+        &{
+          background:  #1096B0;
+          cursor:pointer;
+        }
+        
+        .searchIcon {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    
+    .searchTip {
+      text-align: center;
+      margin-top: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      
+      kbd {
+        background:  #1096B0;
+        padding: 0.1rem 0.4rem;
+        border-radius: 3px;
+        font-family: monospace;
+        margin: 0 0.2rem;
+      }
+    }
+  }
+  
+  /* Footer icons styles */
+  .homeFooterIcons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    
+    .socialIcons, .navIcons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .iconLink, .iconButton {
+      background:  #1096B0;
+      color: white;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+      
+      .icon {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .homeContent {
+      gap: 2rem;
+    }
+    
+    .cardDiv {
+      .input {
+        flex-direction: column;
+        
+        input {
+          width: 100%;
+          border-radius: 10px 10px 0 0;
+        }
+        
+        button {
+          width: 100%;
+          padding: 0.75rem;
+          border-radius: 0 0 10px 10px;
+        }
+      }
+    }
+    
+    .homeFooterIcons {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+  
+  

@@ -1,65 +1,169 @@
-import React, { useEffect, useState } from 'react';
-import './home.scss';
-import video from '../../assets/video.mp4';
-import { FaSearch } from "react-icons/fa";
-import { FiFacebook } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa6";
-import { LuTwitter } from "react-icons/lu";
-import { BsListTask } from "react-icons/bs";
-import { TbApps } from "react-icons/tb";
+import React from "react"
+import { useEffect, useState, useRef } from "react"
+import { FaSearch } from "react-icons/fa"
+import { FiFacebook } from "react-icons/fi"
+import { FaInstagram } from "react-icons/fa6"
+import { LuTwitter } from "react-icons/lu"
+import { BsListTask } from "react-icons/bs"
+import { TbApps } from "react-icons/tb"
+import "./home.scss"
+import Video from '../../Assets/video.mp4'
 
 
 const Home = () => {
-    const [loaded, setLoaded] = useState(false);
+  // State management
+  const [loaded, setLoaded] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [isSearchFocused, setIsSearchFocused] = useState(false)
 
-    useEffect(() => {
-        // Simuler un chargement pour l'effet de transition
-        setTimeout(() => {
-            setLoaded(true);
-        }, 500);
-    }, []);
+  // Refs
+  const videoRef = useRef(null)
+  const searchInputRef = useRef(null)
 
-    return (
-        <section className="home" id="home">
-            {/* Overlay pour assombrir la vidéo */}
-            <div className={`overlay ${loaded ? 'loaded' : ''}`}></div>
+  // Handle loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoaded(true)
+    }, 500)
 
-            {/* Vidéo en arrière-plan */}
-            <video className={`video ${loaded ? 'loaded' : ''}`} src={video} type="video/mp4" autoPlay loop muted></video>
+    // Cleanup function
+    return () => clearTimeout(timer)
+  }, [])
 
-            {/* Contenu principal au-dessus de la vidéo */}
-            <div className={`homeContent container ${loaded ? 'loaded' : ''}`}>
-                {/* Texte de présentation */}
-                <div className="textDiv">
-                    <span className="smallText">Our Services</span>
-                    <h1 className="homeTitle">Find Your Favorite Book</h1>
-                </div>
+  // Handle video loading
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.addEventListener("loadeddata", () => {
+        console.log("Video loaded successfully")
+      })
+    }
+  }, [])
 
-                {/* Barre de recherche */}
-                <div className="cardDiv">
-  <div className="input">
-    <input type="text" placeholder="Enter your book name..." />
-    <button>
-      <FaSearch className="searchIcon" /> {/* Icône de recherche */}
-      <span>Search</span> {/* Texte "Search" */}
-    </button>
-  </div>
-</div>
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value)
+  }
 
-                <div className="homeFooterIcons flex">
-                    <div className="rightIcons">
-                      <FiFacebook className='icon'/>
-                      <FaInstagram className='icon'/>
-                      <LuTwitter className='icon'/>
-                    </div>
-                    <div className="leftIcons">
-                    <BsListTask className='icon'/>
-                    <TbApps className='icon'/>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
+  // Handle search submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      console.log(`Searching for: ${searchQuery}`)
+      // Here you would typically call your search API
+    }
+  }
 
-export default Home;
+  // Handle keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Focus search input when pressing '/' key
+      if (e.key === "/" && !isSearchFocused) {
+        e.preventDefault()
+        searchInputRef.current?.focus()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isSearchFocused])
+
+  return (
+    <section className="home" id="home" aria-label="Library home section">
+      {/* Overlay for darkening the video */}
+      <div className={`overlay ${loaded ? "loaded" : ""}`} aria-hidden="true"></div>
+
+      {/* Background video */}
+      <video
+        ref={videoRef}
+        className={`video ${loaded ? "loaded" : ""}`}
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden="true"
+      >
+        <source src={Video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Main content above the video */}
+      <div className={`homeContent container ${loaded ? "loaded" : ""}`}>
+        {/* Presentation text */}
+        <div className="textDiv" role="banner">
+          <span className="smallText">My Biblio</span>
+          <h1 className="homeTitle">Find Your Favorite Book</h1>
+        </div>
+
+        {/* Search bar */}
+        <form className="cardDiv" onSubmit={handleSearchSubmit} role="search" aria-label="Search for books">
+          <div className={`input ${isSearchFocused ? "focused" : ""}`}>
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Enter your book name..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+              aria-label="Search for books"
+            />
+            <button type="submit" aria-label="Search" disabled={!searchQuery.trim()}>
+              <FaSearch className="searchIcon" aria-hidden="true" />
+              <span>Search</span>
+            </button>
+          </div>
+          <div className="searchTip">
+            Press <kbd>/</kbd> to focus search
+          </div>
+        </form>
+
+        {/* Footer icons */}
+        <div className="homeFooterIcons">
+          {/* Social media icons */}
+          <div className="socialIcons" aria-label="Social media links">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+              className="iconLink"
+            >
+              <FiFacebook className="icon" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram page"
+              className="iconLink"
+            >
+              <FaInstagram className="icon" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Twitter page"
+              className="iconLink"
+            >
+              <LuTwitter className="icon" />
+            </a>
+          </div>
+
+          {/* Navigation icons */}
+          <div className="navIcons" aria-label="Navigation options">
+            <button aria-label="View as list" className="iconButton">
+              <BsListTask className="icon" />
+            </button>
+            <button aria-label="View as grid" className="iconButton">
+              <TbApps className="icon" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Home
+

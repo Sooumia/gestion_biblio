@@ -12,7 +12,7 @@
 
 .services-container {
     padding: 40px 10%;
-    background-color: #f0f4f8;
+    background-color: #1096B0; /* Dark Bordeaux for background */
     text-align: center;
     position: relative; /* Ensure the container is positioned correctly */
     z-index: 1; /* Ensure the container is above other elements */
@@ -21,7 +21,7 @@
 .services-header h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: #0a857d;
+    color: #F5C147; /* Golden for main header text */
     margin-bottom: 10px;
     position: relative; /* Ensure the title is positioned correctly */
     z-index: 2; /* Ensure the title is above other elements */
@@ -29,7 +29,7 @@
 
 .services-header p {
     font-size: 1.2rem;
-    color: #5f6368;
+    color: #A8DADC; /* Pastel sky blue for subtitle */
     margin-bottom: 40px;
     position: relative; /* Ensure the subtitle is positioned correctly */
     z-index: 2; /* Ensure the subtitle is above other elements */
@@ -42,7 +42,7 @@
 }
 
 .service-card {
-    background-color: white;
+    background-color: #6C3A5C; /* Dark prune for card background */
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -57,18 +57,18 @@
 
 .service-icon {
     font-size: 3rem;
-    color: #009e99;
+    color: #E77E4D; /* Soft orange for icons */
     margin-bottom: 20px;
 }
 
 .service-card h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: #F5C147; /* Golden for card titles */
     margin-bottom: 10px;
 }
 
 .service-card p {
-    color: #777;
+    color: #FFFFFF; /* White for card text */
     font-size: 1rem;
 }
 

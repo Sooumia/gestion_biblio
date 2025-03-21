@@ -1,10 +1,10 @@
 :root {
-    --primary-color: #007bff;
+    --primary-color: #1E6262;
     --secondary-color: #6c757d;
     --background-dark-color: #10121A;
     --background-dark-grey: #191d2b;
     --border-color: #2e344e;
-    --background-light-color: #f1f1f1;
+    --background-light-color: #B0B7B8;
     --white-color: #fff;
     --background-dark-color: #a4acc4;
     --font-dark-color: #313131;
@@ -53,7 +53,7 @@
   }
   
   .item a {
-    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    color: #02252B; /* Utilisation de la couleur de texte claire */
     text-decoration: none;
     margin-bottom: 8px;
     display: block;
@@ -61,14 +61,14 @@
   }
   
   .item a:hover {
-    color: var(--primary-color); /* Utilisation de la couleur primaire */
+    color:#02252B; /* Utilisation de la couleur primaire */
     transform: translateX(5px);
   }
   
   .item.text p {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    color:#02252B; /* Utilisation de la couleur de texte claire */
     margin-top: 10px;
   }
   
@@ -80,7 +80,7 @@
   }
   
   .social-icon {
-    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    color: #02252B; /* Utilisation de la couleur de texte claire */
     transition: color 0.3s ease, transform 0.3s ease;
   }
   
@@ -91,7 +91,7 @@
   
   footer p {
     text-align: center;
-    color: var(--background-dark-color); /* Utilisation de la couleur de texte claire */
+    color: #02252B; /* Utilisation de la couleur de texte claire */
     font-size: 1rem;
     margin-top: 30px;
   }
