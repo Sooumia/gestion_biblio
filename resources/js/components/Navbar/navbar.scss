@@ -64,22 +64,7 @@
                     }
                 }
 
-                .btn {
-                    margin-left: 1rem;
-
-                    a {
-                        background-color: var(--primary-color);
-                        color: var(--white-color);
-                        padding: 0.5rem 1rem;
-                        text-decoration: none;
-                        font-weight: 600;
-                        border-radius: 0.25rem;
-
-                        &:hover {
-                            background-color: var(--secondary-color);
-                        }
-                    }
-                }
+               
             }
 
             .closeNavbar {

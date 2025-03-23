@@ -9,10 +9,10 @@ const Footer = () => {
       <footer className="container-footer">
         <div className="grid">
           <div className="item">
-            {/* Logo or Title */}
+            {/* Logo ou Titre */}
             <div className="logo">
               <IoLibrary className="icon" />
-              <h3>MyBiblio</h3>
+              <h3>MaBibliothèque</h3>
             </div>
           </div>
           <div className="item">
@@ -24,7 +24,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="item">
-            <h3>A Propos</h3>
+            <h3>À Propos</h3>
             <ul>
               <li><a href="#" aria-label="Notre Histoire">Notre Histoire</a></li>
               <li><a href="#" aria-label="Notre Mission">Notre Mission</a></li>
@@ -32,9 +32,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="item text">
-            <h3>À Propos de MyBiblio</h3>
+            <h3>À Propos de MaBibliothèque</h3>
             <p>
-              MyBiblio est une bibliothèque numérique innovante dédiée à offrir une expérience de lecture exceptionnelle.
+              MaBibliothèque est une bibliothèque numérique innovante dédiée à offrir une expérience de lecture exceptionnelle.
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
 
         <p className="copyright">
-          <IoLibrary className="icon" /> MyBiblio © 2024 | <a href="#" aria-label="Privacy Policy">Privacy Policy</a>
+          <IoLibrary className="icon" /> MaBibliothèque © 2024 | <a href="#" aria-label="Politique de Confidentialité">Politique de Confidentialité</a>
         </p>
       </footer>
     </div>

@@ -1,52 +1,64 @@
-import React from "react" // Add this line
-import { useState } from "react"
-import { Send, Phone, MapPin, Mail, Clock } from "lucide-react"
+import React from "react";
+import { useState } from "react";
+import { Send, Phone, MapPin, Mail, Clock } from "lucide-react";
+import image1 from './img.jpg';
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: "",
+    nom: "",
     email: "",
-    subject: "",
+    sujet: "",
     message: "",
-  })
-  const [formStatus, setFormStatus] = useState(null)
+  });
+  const [formStatus, setFormStatus] = useState(null);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // Simulate form submission
-    setFormStatus("loading")
+    e.preventDefault();
+    // Simuler l'envoi du formulaire
+    setFormStatus("chargement");
 
     setTimeout(() => {
-      setFormStatus("success")
+      setFormStatus("succès");
       setFormData({
-        name: "",
+        nom: "",
         email: "",
-        subject: "",
+        sujet: "",
         message: "",
-      })
-    }, 1500)
-  }
+      });
+    }, 1500);
+  };
 
   return (
     <div className="bg-[#f8f5f1] min-h-screen" id="contact">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#1096B0] mb-4">Contactez-nous</h1>
-          <p className="text-lg text-[#02252B] max-w-2xl mx-auto">
-            Nous sommes à votre disposition pour répondre à toutes vos questions concernant notre bibliothèque.
-          </p>
+        <div className="relative mb-16">
+          <div className="h-[300px] w-full rounded-xl overflow-hidden">
+            <img
+              src={image1}
+              alt="Contactez-nous"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1096B0]/40 to-transparent flex items-center">
+              <div className="px-8 sm:px-12 max-w-2xl">
+                <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">Contactez-nous</h1>
+                <p className="text-white/90 text-lg sm:text-xl mb-8 leading-relaxed">
+                  Nous sommes à votre disposition pour répondre à toutes vos questions concernant notre bibliothèque.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Informations de contact */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-semibold text-[#1096B0] mb-6">Informations de contact</h2>
 
@@ -92,9 +104,9 @@ function Contact() {
                 <div className="ml-4">
                   <p className="text-sm font-medium text-gray-900">Horaires d'ouverture</p>
                   <div className="text-sm text-gray-600">
-                    <p>Lundi - Vendredi: 9h00 - 19h00</p>
-                    <p>Samedi: 10h00 - 18h00</p>
-                    <p>Dimanche: Fermé</p>
+                    <p>Lundi - Vendredi : 9h00 - 19h00</p>
+                    <p>Samedi : 10h00 - 18h00</p>
+                    <p>Dimanche : Fermé</p>
                   </div>
                 </div>
               </div>
@@ -113,20 +125,20 @@ function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Formulaire de contact */}
           <div className="bg-white rounded-xl shadow-md p-8">
             <h2 className="text-2xl font-semibold text-[#1096B0] mb-6">Envoyez-nous un message</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="nom" className="block text-sm font-medium text-gray-700">
                   Nom complet
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="nom"
+                  name="nom"
+                  value={formData.nom}
                   onChange={handleChange}
                   required
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-[#1096B0] focus:border-[#1096B0] sm:text-sm"
@@ -149,14 +161,14 @@ function Contact() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="sujet" className="block text-sm font-medium text-gray-700">
                   Sujet
                 </label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
+                  id="sujet"
+                  name="sujet"
+                  value={formData.sujet}
                   onChange={handleChange}
                   required
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-[#1096B0] focus:border-[#1096B0] sm:text-sm"
@@ -181,10 +193,10 @@ function Contact() {
               <div>
                 <button
                   type="submit"
-                  disabled={formStatus === "loading"}
+                  disabled={formStatus === "chargement"}
                   className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1096B0] hover:bg-[#4a3024] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1096B0] transition-colors"
                 >
-                  {formStatus === "loading" ? (
+                  {formStatus === "chargement" ? (
                     "Envoi en cours..."
                   ) : (
                     <>
@@ -195,7 +207,7 @@ function Contact() {
                 </button>
               </div>
 
-              {formStatus === "success" && (
+              {formStatus === "succès" && (
                 <div className="rounded-md bg-green-50 p-4">
                   <div className="flex">
                     <div className="flex-shrink-0">
@@ -224,45 +236,11 @@ function Contact() {
             </form>
           </div>
         </div>
-
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-semibold text-[#1096B0] mb-6">Foire aux questions</h2>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-medium text-[#1096B0]">Comment puis-je m'inscrire à la bibliothèque ?</h3>
-                <p className="mt-2 text-gray-600">
-                  Pour vous inscrire, veuillez vous présenter à l'accueil de la bibliothèque avec une pièce d'identité
-                  et un justificatif de domicile de moins de 3 mois.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-medium text-[#1096B0]">Combien de livres puis-je emprunter à la fois ?</h3>
-                <p className="mt-2 text-gray-600">
-                  Vous pouvez emprunter jusqu'à 10 documents (livres, DVD, CD) simultanément pour une durée de 3
-                  semaines.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-lg font-medium text-[#1096B0]">Comment puis-je prolonger un emprunt ?</h3>
-                <p className="mt-2 text-gray-600">
-                  Vous pouvez prolonger vos emprunts une fois pour une durée supplémentaire de 2 semaines, soit en ligne
-                  via votre compte, soit par téléphone, à condition que le document ne soit pas réservé par un autre
-                  usager.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
+           
       </div>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
 

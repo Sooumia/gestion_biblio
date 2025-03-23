@@ -92,17 +92,22 @@
         
         <div class="info">
             <h3>Informations Académiques</h3>
-            <p>Université: {{ Auth::user()->universite ?? 'Non renseigné' }}</p>
+            <p>Université: {{ Auth::user()->universite ?? 'Ntic syba' }}</p>
             <p>Filière: {{ Auth::user()->filiere ?? 'Non renseigné' }}</p>
-            <p>Niveau: {{ Auth::user()->niveau ?? 'Non renseigné' }}</p>
+            <p>Niveau: {{ Auth::user()->niveau ?? 'technisien spésialisé' }}</p>
         </div>
         
         <div class="skills">
             <h3>Compétences</h3>
             <div class="skills-list">
-                @foreach (explode(',', Auth::user()->skills ?? '') as $skill)
-                    <span>{{ trim($skill) }}</span>
-                @endforeach
+                <span>html</span>
+                <span>css</span>
+                <span>java</span>
+                <span>react</span>
+                <span>laravel</span>
+                <span>figma</span>
+                <span>php</span>
+                <span>react</span>
             </div>
         </div>
         </div>

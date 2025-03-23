@@ -63,10 +63,10 @@ li{
 }
 
 .btn {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--white-color);
     background-color: var(--primary-color);
-    padding: 0.7rem 1.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 3rem;
     display: inline-block;
     border: none;

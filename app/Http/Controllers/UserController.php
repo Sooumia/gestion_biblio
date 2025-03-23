@@ -92,5 +92,11 @@ class UserController extends Controller
     }
 
     
+    public function favoris_page() {
+    // Logic to fetch and display favorite items
+    return view('favoris.favoris_page');
+    }
+
+    
 
 }

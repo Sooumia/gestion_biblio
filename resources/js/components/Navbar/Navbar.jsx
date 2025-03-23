@@ -6,14 +6,14 @@ import { TbGridDots } from "react-icons/tb";
 
 const Navbar = () => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
-    const [active, setActive] = useState('navBar');
+    const [actif, setActif] = useState('navBar');
 
-    const showNavBar = () => {
-        setActive('navBar activeNavbar');
+    const afficherNavBar = () => {
+        setActif('navBar activeNavbar');
     };
 
-    const closeNavBar = () => {
-        setActive('navBar');
+    const fermerNavBar = () => {
+        setActif('navBar');
     };
 
     return (
@@ -27,35 +27,35 @@ const Navbar = () => {
                 </div>
 
                 {/* Barre de navigation */}
-                <div className={active}>
+                <div className={actif}>
                     <ul className="navLists flex">
                         <li className="navItem">
-                            <a href="#home" className="navLink" onClick={closeNavBar}>Home</a>
+                            <a href="#home" className="navLink" onClick={fermerNavBar}>Accueil</a>
                         </li>
                         <li className="navItem">
-                            <a href="#services" className="navLink" onClick={closeNavBar}>Services</a>
+                            <a href="#services" className="navLink" onClick={fermerNavBar}>Services</a>
                         </li>
                         <li className="navItem">
-                            <a href="#about" className="navLink" onClick={closeNavBar}>About</a>
+                            <a href="#about" className="navLink" onClick={fermerNavBar}>À propos</a>
                         </li>
                         <li className="navItem">
-                            <a href="#contact" className="navLink" onClick={closeNavBar}>Contact</a>
+                            <a href="#contact" className="navLink" onClick={fermerNavBar}>Contact</a>
                         </li>
                         <button className="btn">
                             <a href={`${backendUrl}/login`} className="login">
-                                Login
+                                Connexion
                             </a>
                         </button>
                     </ul>
 
                     {/* Bouton pour fermer la barre de navigation (mobile) */}
-                    <div className='closeNavbar' onClick={closeNavBar}>
+                    <div className='closeNavbar' onClick={fermerNavBar}>
                         <IoCloseCircleOutline className="icon" />
                     </div>
                 </div>
 
                 {/* Bouton pour afficher la barre de navigation (mobile) */}
-                <div className="toggleNavBar" onClick={showNavBar}>
+                <div className="toggleNavBar" onClick={afficherNavBar}>
                     <TbGridDots className='icon' />
                 </div>
             </header>

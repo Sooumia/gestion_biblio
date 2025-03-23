@@ -70,3 +70,6 @@ Route::get('/cat_search/{id}',[UserController::class,'cat_search']);
 
 
 Route::put('update_profil', [ProfileController::class, 'update_profil'])->name('profile.update');
+
+
+Route::get('/favoris', [UserController::class, 'favoris_page'])->name('favoris.index');

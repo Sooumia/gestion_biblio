@@ -20,10 +20,10 @@
                 </li>
 
                 <li>
-                    <a href="{{url('category_page')}}">
-                    <span class="icon">
-                      <ion-icon name="bookmarks-outline"></ion-icon>
-                    </span>
+                    <a href="{{ route('favoris.index') }}">
+                        <span class="icon">
+                            <ion-icon name="bookmarks-outline"></ion-icon>
+                        </span>
                         <span class="title">Favoris</span>
                     </a>
                 </li>
