@@ -120,14 +120,14 @@
                          autocomplete="phone" />
             </div>
             <div class="mb-4">
-                <x-label for="address" value="{{ __('Address') }}" class="text-white" />
-                <x-input id="address"
+                <x-label for="address" value="{{ __('adress') }}" class="text-white" />
+                <x-input id="adress"
                          class="block mt-1 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                          type="text"
-                         name="address"
-                         :value="old('address')"
+                         name="adress"
+                         :value="old('adress')"
                          required
-                         autocomplete="address" />
+                         autocomplete="adress" />
             </div>
             <div class="mb-4">
                 <x-label for="email" value="{{ __('Email') }}" class="text-white" />
